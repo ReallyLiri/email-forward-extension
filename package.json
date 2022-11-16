@@ -1,0 +1,42 @@
+{
+  "name": "email-auto-forward-extension",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn build:core && yarn build:view",
+    "build:core": "webpack --config webpack.core.js",
+    "build:view": "webpack --config webpack.view.js",
+    "browser": "yarn browser-build && webpack serve --config webpack.view.js --mode development",
+    "browser-build": "webpack --config webpack.view.js --output-path view/public/view-scripts --mode development"
+  },
+  "dependencies": {
+    "@extend-chrome/storage": "1.5.0",
+    "@hookform/resolvers": "^2.8.9",
+    "gmail-js": "1.0.20",
+    "jquery": "3.6.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-hook-form": "^7.31.1",
+    "styled-components": "5.3.5",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.14.1",
+    "@testing-library/react": "13.0.0",
+    "@testing-library/user-event": "13.2.1",
+    "@types/chrome": "0.0.186",
+    "@types/jest": "27.0.1",
+    "@types/jquery": "3.5.14",
+    "@types/node": "^16.7.13",
+    "@types/react": "18.0.0",
+    "@types/react-dom": "18.0.0",
+    "@types/styled-components": "5.1.25",
+    "@types/yup": "^0.29.14",
+    "react-scripts": "5.0.1",
+    "ts-loader": "9.3.0",
+    "typescript": "4.6.4",
+    "webpack": "5.72.1",
+    "webpack-cli": "4.9.2"
+  }
+}
