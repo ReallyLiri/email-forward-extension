@@ -8,6 +8,23 @@ Powered by [KartikTalwar/gmail.js](https://github.com/KartikTalwar/gmail.js)
 
 # Development
 
+## Structure
+
+* [common](common) - shared models between the different modules.
+* [src](src) - core extension logic
+    * [background.ts](src/background.ts) - the service worker. Responsible for listening to events.
+    * [content.ts](src/content.ts) - middleware communicating between the target browser page (gmail) and the service worker. It also injects `injected.ts` to the page.
+    * [injected.ts](src/injected.ts) - the logic that gets injected to the target browser page (gmail)
+* [view](view) - React page for the extension configurations
+
+## Communication and Storage
+
+Extensions use dedicated storage that is different than the regular browser local storage. To read/write to this storage we must use our service worker. To pass intentions back and forth, we use the following mechanism:
+
+* Browser page (`injected`): uses `window.addEventListener` and `window.dispatchEvent`.
+* Service worker (`background`): uses `chrome.runtime.onMessage.addListener` and `chrome.tabs.sendMessage`.
+* Middleware (`content`): uses both `window` and `chrome.runtime` hooks to move events from side to side.
+
 ## Developing Options page
 
 ```shell

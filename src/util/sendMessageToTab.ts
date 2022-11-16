@@ -1,7 +1,7 @@
 import { ExtensionEvent } from "./event";
 import { error, log } from "../../common/log";
 
-export const messageTab = (tab: chrome.tabs.Tab, message: ExtensionEvent) =>
+export const sendMessageToTab = (tab: chrome.tabs.Tab, message: ExtensionEvent) =>
   chrome.tabs.sendMessage(
     tab.id!,
     message,
