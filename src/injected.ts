@@ -126,7 +126,14 @@ function manualPatch() {
     return;
   }
 
-  const composes = gmail.dom.composes();
+  let composes: GmailDomCompose[];
+
+  try {
+    composes = gmail.dom.composes();
+  } catch (e) {
+    log("cannot fetch composes", e)
+    return;
+  }
 
   if (composes.length === 0) {
     log("no composes around");

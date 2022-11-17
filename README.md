@@ -19,7 +19,7 @@ Powered by [KartikTalwar/gmail.js](https://github.com/KartikTalwar/gmail.js)
 
 ## Communication and Storage
 
-Extensions use dedicated storage that is different than the regular browser local storage. To read/write to this storage we must use our service worker. To pass intentions back and forth, we use the following mechanism:
+Extensions use dedicated storage that is different from the regular browser local storage. To read/write to this storage we must use our service worker. To pass intentions back and forth, we use the following mechanism:
 
 * Browser page (`injected`): uses `window.addEventListener` and `window.dispatchEvent`.
 * Service worker (`background`): uses `chrome.runtime.onMessage.addListener` and `chrome.tabs.sendMessage`.

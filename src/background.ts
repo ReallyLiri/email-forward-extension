@@ -1,7 +1,7 @@
 import { getConfigurationAsync } from "./util/storage";
 import { ExtensionEvent, ExtensionEventType } from "./util/event";
-import { sendMessageToTab } from "src/util/sendMessageToTab";
 import { error, log } from "../common/log";
+import { sendMessageToTab } from "./util/sendMessageToTab";
 
 const GMAIL_URL_SKELETON = "://mail.google.com/";
 
