@@ -4,6 +4,8 @@ Automatically CC/BCC emails according to configured rules.
 
 ![screenshot](https://i.imgur.com/1lJy1v8.png)
 
+![flow](https://i.imgur.com/3jiMkQ4.gif)
+
 Powered by [KartikTalwar/gmail.js](https://github.com/KartikTalwar/gmail.js)
 
 # Development
