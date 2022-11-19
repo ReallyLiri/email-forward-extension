@@ -1,15 +1,6 @@
 import { log } from "../../common/log";
 import { RecipientType } from "../../common/configuration";
 
-const TAB_KEY_CODE = 9;
-const KEYDOWN_EVENT = new KeyboardEvent("keydown", {
-  bubbles: true,
-  cancelable: true,
-  key: "Tab",
-  shiftKey: true,
-  keyCode: TAB_KEY_CODE
-});
-
 const CLICK_EVENT = "click";
 
 const ensureFieldVisible = (compose: GmailDomCompose, field: RecipientType) =>
@@ -24,10 +15,8 @@ export const setRecipient = (compose: GmailDomCompose, field: RecipientType, ema
 
   jqueryElement.val(email);
 
-  const htmlElement = jqueryElement[0];
-
-  htmlElement.focus();
-  htmlElement.dispatchEvent(KEYDOWN_EVENT);
+  // focus on a different box so the injected field will get de-focused
+  compose.dom('subjectbox')[0].focus()
 }
 
 export const unsetRecipient = (compose: GmailDomCompose, field: RecipientType, email: string) => {
